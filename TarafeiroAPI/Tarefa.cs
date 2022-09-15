@@ -9,7 +9,7 @@ namespace TarafeiroAPI
         [StringLength(20)]
         public string Status { get; set; } = string.Empty;
 
-        [StringLength(20)]
+        [StringLength(200)]
         public string Comentario { get; set; } = string.Empty;
         public int TarefaTipoId { get; set; }
         public TarefaTipo? TarefaTipo { get; set; }
