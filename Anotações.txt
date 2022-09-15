@@ -1,0 +1,19 @@
+Gerar componentes: ng g c tarefeiros
+ng g c tarefeiro/show-tarefeiro
+ng g c tarefeiro/add-edit-tarefeiro
+ng g service tarefeiro-api
+ng g service tarefeiro-api
+
+Extensões VSCode
+Angular Language Service
+Angular Snippets (Version 13)
+
+Adicionar os imports no app.module.ts
+import { HttpClientModule } from '@angular/common/http'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { TarefeiroApiService } from './tarefeiro-api.service';
+
+
+Se mais alguém recebeu o erro ao tentar executar o ng version: "ng.ps1 não pode ser carregado. O arquivo C:\Program Files\nodejs\ng.ps1 não está assinado digitalmente"... isso se trata de uma política de execução definida no Windows. Executando o comando abaixo conseguimos alterar a política:
+
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
