@@ -30,6 +30,18 @@ export class ShowTarefeiroComponent implements OnInit {
   activateAddEditTarefeiroComponent:boolean = false;
   tarefeiro:any;
 
+  modalAdd(){
+    this.tarefeiro = {
+      id:0,
+      status:null,
+      comentario:null,
+      tarefaTipoId:null
+    }
+    this.modalTitle = "Nova Tarefa"
+    this.activateAddEditTarefeiroComponent = true;
+  }
+
+
   refreshTarefeiroTiposMap(){
     this.service.getTarefaTiposList().subscribe(data => {
       this.tarefeiroTiposList = data;
