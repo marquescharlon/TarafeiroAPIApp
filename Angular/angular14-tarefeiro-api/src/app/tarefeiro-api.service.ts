@@ -31,7 +31,7 @@ export class TarefeiroApiService {
 
   // Tarefa Tipos
 
-  getTarefaTipoList():Observable<any[]>{
+  getTarefaTiposList():Observable<any[]>{
     return this.http.get<any>(this.tarefeiroAPIUrl + '/tarefaTipos');
   }
 

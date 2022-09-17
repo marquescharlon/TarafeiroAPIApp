@@ -14,13 +14,27 @@ export class ShowTarefeiroComponent implements OnInit {
   tarefeiroTiposList:any=[];
 
   // Map para mostrar a associação entre as tabelas (FK)
-  tarefeiroTiposMap:Map<number, string> = new Map();
+  tarefeiroTiposMap:Map<number, string> = new Map()
 
   constructor(private service:TarefeiroApiService) { }
 
   ngOnInit(): void {
     this.tarefeiroList$ = this.service.getTarefaList();
-    this.tarefeiroTiposList$ = this.service.getTarefaTipoList();
+    this.tarefeiroTiposList$ = this.service.getTarefaTiposList();
+    this.refreshTarefeiroTiposMap();
+  }
+
+  refreshTarefeiroTiposMap(){
+    this.service.getTarefaTiposList().subscribe(data => {
+      this.tarefeiroTiposList = data;
+
+      for(let i = 0; i < data.length; i++){
+        this.tarefeiroTiposMap.set(
+          this.tarefeiroTiposList[i].id, 
+          this.tarefeiroTiposList[i].tarefaNome
+        )
+      }
+    })
   }
 
 }
