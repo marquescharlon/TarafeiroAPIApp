@@ -7,14 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class TarefeiroApiService {
 
-  readonly tarefeiroAPIUrl = "https://localhost:7041/api/";
+  readonly tarefeiroAPIUrl = "https://localhost:7041/api";
 
   constructor(private http:HttpClient) { }
 
   // Tarefa
 
   getTarefaList():Observable<any[]>{
-    return this.http.get<any>(this.tarefeiroAPIUrl + '/tarefa');
+    return this.http.get<any>(this.tarefeiroAPIUrl + '/tarefas');
   }
 
   addTarefa(data:any){

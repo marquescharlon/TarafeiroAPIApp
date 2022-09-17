@@ -4,6 +4,8 @@ ng g c tarefeiro/add-edit-tarefeiro
 ng g service tarefeiro-api
 ng g service tarefeiro-api
 
+ng serve --open
+
 Extensões VSCode
 Angular Language Service
 Angular Snippets (Version 13)
