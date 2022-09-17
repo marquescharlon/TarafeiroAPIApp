@@ -1,7 +1,12 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-secondary float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" class="btn btn-secondary float-end m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Show Tipos de Tarefas
   </button>
+
+<!-- Button Add modal -->
+<button type="button" class="btn btn-primary float-end m-2" data-bs-toggle="modal" data-bs-target="#exampleModalNova">
+  Nova Tarefa
+</button>
 
 <table class="table table-striped">
     <thead>
@@ -37,3 +42,21 @@
       </div>
     </div>
   </div>
+
+
+
+
+<!-- Add Modal Tarefa -->
+<div class="modal fade" id="exampleModalNova" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-add-edit-tarefeiro></app-add-edit-tarefeiro>
+      </div>
+    </div>
+  </div>
+</div>

@@ -19,3 +19,5 @@ import { TarefeiroApiService } from './tarefeiro-api.service';
 Se mais alguém recebeu o erro ao tentar executar o ng version: "ng.ps1 não pode ser carregado. O arquivo C:\Program Files\nodejs\ng.ps1 não está assinado digitalmente"... isso se trata de uma política de execução definida no Windows. Executando o comando abaixo conseguimos alterar a política:
 
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+
