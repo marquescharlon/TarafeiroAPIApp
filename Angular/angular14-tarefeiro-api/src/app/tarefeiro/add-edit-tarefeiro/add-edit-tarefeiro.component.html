@@ -1,1 +1,30 @@
-<p>add-edit-tarefeiro works!</p>
+<form>
+    <div class="mb-3">
+        <label for="tarefaTipoId" class="form-label">Tipo de Tarefa</label>
+        <select name="tarefaTipoId" id="tarefaTipoId" class="form-control"
+        [(ngModel)]="tarefaTipoId" *ngIf="tarefa.id==0">
+            <option *ngFor="let tipo of tarefaTipoList$|async" [value]="tipo.id">
+                {{tipo.tarefaNome}}
+            </option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="status" class="form-label">Status</label>
+        <select name="status" id="status" class="form-control" [(ngModel)]="status">
+            <option *ngFor="let status of statusList$|async" [value]="status.statusOpcao">
+                {{status.statusOpcao}}
+            </option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="comentario" class="form-label">Comentário</label>
+        <input type="text" class="form-control" [(ngModel)]="comentario" name="comentario">
+    </div>
+    <button (click)="addTarefa()" *ngIf="tarefa.id==0" class="btn btn-primary">
+        Add
+    </button>
+    <button (click)="updateTarefa()" *ngIf="tarefa.id!=0" class="btn btn-primary">
+        Update
+    </button>
+    
+</form>

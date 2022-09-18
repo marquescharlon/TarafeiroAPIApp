@@ -9,6 +9,18 @@
   Nova Tarefa
 </button>
 
+<div class="alert alert-success" role="alert" id="add-success-alert">
+  Tarefa adicionada com sucesso!
+</div>
+
+<div class="alert alert-success" role="alert" id="update-success-alert">
+  Tarefa atualizada com sucesso!
+</div>
+
+<div class="alert alert-success" role="alert" id="delete-success-alert">
+  Tarefa excluída com sucesso!
+</div>
+
 <table class="table table-striped">
     <thead>
         <th>Id</th>
@@ -47,16 +59,17 @@
 
 
 
-<!-- Add Modal Tarefa -->
+<!-- Add or Update(edit) Modal Tarefa -->
 <div class="modal fade" id="exampleModalNova" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+        (click)="modalClose()" id="add-edit-modal-close"></button>
       </div>
       <div class="modal-body">
-        <app-add-edit-tarefeiro></app-add-edit-tarefeiro>
+        <app-add-edit-tarefeiro [tarefa]="tarefeiro" *ngIf="activateAddEditTarefeiroComponent"></app-add-edit-tarefeiro>
       </div>
     </div>
   </div>
