@@ -14,7 +14,7 @@ export class ShowTarefeiroComponent implements OnInit {
   tarefeiroTiposList:any=[];
 
   // Map para mostrar a associação entre as tabelas (FK)
-  tarefeiroTiposMap:Map<number, string> = new Map()
+  tarefeiroTiposMap:Map<number, string> = new Map();
 
   constructor(private service:TarefeiroApiService) { }
 
@@ -40,6 +40,30 @@ export class ShowTarefeiroComponent implements OnInit {
     this.modalTitle = "Nova Tarefa"
     this.activateAddEditTarefeiroComponent = true;
   }
+
+  modalEdit(item:any){
+    this.tarefeiro = item;
+    this.modalTitle = "Alteração da tarefa";
+    this.activateAddEditTarefeiroComponent = true;
+  }
+
+  delete(item:any){
+    if(confirm(`Você tem certeza que quer deletar a tarefa ${item.id}?`)){
+      this.service.deleteTarefa(id).subscribe(res => {
+        var closeModalBtn = document.getElementById('add-edit-modal-close');
+        if(closeModalBtn){
+          closeModalBtn.click();
+        }
+        var showDeleteSuccess = document.getElementById('delete-success-alert');
+        if(showDeleteSuccess){
+          showDeleteSuccess.style.display = "block";
+        }
+        setTimeout(function(){
+          if(showDeleteSuccess){
+            showDeleteSuccess.style.display = "none";
+          }
+        },4000);
+    }
 
   modalClose(){
     this.activateAddEditTarefeiroComponent = false;

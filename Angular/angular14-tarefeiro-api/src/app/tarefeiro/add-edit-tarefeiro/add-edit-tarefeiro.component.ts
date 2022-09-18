@@ -57,6 +57,30 @@ export class AddEditTarefeiroComponent implements OnInit {
   }
 
   updateTarefa(){
+    var tarefa = {
+      id: this.id,
+      status:this.status,
+      comentario:this.comentario,
+      tarefaTipoId:this.tarefaTipoId
+    }
+    var id:number = this.id;
+    this.service.updateTarefa(id,tarefa).subscribe(res => {
+      var closeModalBtn = document.getElementById('add-edit-modal-close');
+      if(closeModalBtn){
+        closeModalBtn.click();
+      }
+      var showUpdateSuccess = document.getElementById('update-success-alert');
+      if(showUpdateSuccess){
+        showUpdateSuccess.style.display = "block";
+      }
+      setTimeout(function(){
+        if(showUpdateSuccess){
+          showUpdateSuccess.style.display = "none";
+        }
+      },4000);
+
+      
+    })
 
   }
 
